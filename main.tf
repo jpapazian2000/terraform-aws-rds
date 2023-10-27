@@ -1,6 +1,17 @@
 provider "aws" {
-  region = "us-east-2"
+  region  = "eu-west-3"
+  access_key = data.doormat_aws_credentials.creds.access_key
+  secret_key = data.doormat_aws_credentials.creds.secret_key
+  token      = data.doormat_aws_credentials.creds.token
 }
+provider "doormat" {}
+
+data "doormat_aws_credentials" "creds" {
+  provider = doormat
+
+  role_arn = "arn:aws:iam::007910490320:role/sample_dev-no-code-aws-role"
+}
+
 
 provider "random" {}
 
