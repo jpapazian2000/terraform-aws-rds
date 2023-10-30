@@ -1,10 +1,26 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+    random = {
+      source = "hashicorp/random"
+    }
+    doormat = {
+      source = "doormat.hashicorp.services/hashicorp-security/doormat"
+      version = "~> 0.0.3"
+    }
+  }
+}
 provider "aws" {
   region  = "eu-west-3"
   access_key = data.doormat_aws_credentials.creds.access_key
   secret_key = data.doormat_aws_credentials.creds.secret_key
   token      = data.doormat_aws_credentials.creds.token
 }
-provider "doormat" {}
+provider "doormat" {
+
+}
 
 data "doormat_aws_credentials" "creds" {
   provider = doormat
