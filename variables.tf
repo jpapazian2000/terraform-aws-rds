@@ -1,4 +1,4 @@
-variable "db_name" {
+variable "db_namedb" {
   description = "Unique name to assign to RDS instance"
 }
 
