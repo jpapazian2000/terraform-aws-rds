@@ -102,4 +102,5 @@ resource "aws_db_instance" "education" {
   parameter_group_name   = aws_db_parameter_group.education.name
   publicly_accessible    = true
   skip_final_snapshot    = true
+  db_name                = var.db_name
 }
