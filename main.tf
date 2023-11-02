@@ -6,27 +6,27 @@ terraform {
     random = {
       source = "hashicorp/random"
     }
-    doormat = {
-      source = "doormat.hashicorp.services/hashicorp-security/doormat"
-      version = "~> 0.0.3"
-    }
+    #doormat = {
+      #source = "doormat.hashicorp.services/hashicorp-security/doormat"
+      #version = "~> 0.0.3"
+    #}
   }
 }
 provider "aws" {
   region  = "eu-west-3"
-  access_key = data.doormat_aws_credentials.creds.access_key
-  secret_key = data.doormat_aws_credentials.creds.secret_key
-  token      = data.doormat_aws_credentials.creds.token
+  #access_key = data.doormat_aws_credentials.creds.access_key
+  #secret_key = data.doormat_aws_credentials.creds.secret_key
+  #token      = data.doormat_aws_credentials.creds.token
 }
-provider "doormat" {
+#provider "doormat" {
 
-}
+#}
 
-data "doormat_aws_credentials" "creds" {
-  provider = doormat
-
-  role_arn = "arn:aws:iam::007910490320:role/sample_dev-no-code-aws-role"
-}
+#data "doormat_aws_credentials" "creds" {
+  #provider = doormat
+#
+  #role_arn = "arn:aws:iam::007910490320:role/sample_dev-no-code-aws-role"
+#}
 
 
 provider "random" {}
